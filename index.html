@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+            <style>
+                * {
+          margin: 0;
+          padding: 0;
+          font-family: "Verdana", sans-serif;
+        }
+        body {
+          box-sizing: border-box;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #f2f2f2;
+          font-family: "Verdana", sans-serif;
+        }
+        h1 {
+          font-weight: 900;
+          font-size: 32px;
+          font-family: "Verdana", sans-serif;
+          padding-bottom: 10px;
+        }
+        button {
+          border: none;
+          font-family: "Verdana", sans-serif;
+          cursor: pointer;
+          font-size: 18px;
+        }
+        button:hover {
+          transform: scale(1.1);
+        }
+        
+        main {
+          width: 30%;
+          background: #b6d1d2;
+          color: #412626;
+          border-radius: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 20px;
+          padding: 50px 0;
+        }
+        @keyframes slide {
+          0% {
+            transform: translateY(10%);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+        section {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          text-align: center;
+          animation: slide ease-in-out 0.2s;
+        }
+        .home {
+          padding: 50px 0;
+        }
+        .home > div {
+          display: flex;
+          gap: 40px;
+        }
+        .layer-one-btn {
+          background: #341c9758;
+          border-radius: 5px;
+          padding: 15px 50px;
+        }
+        
+        form {
+          width: 350px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin-top: 20px;
+        }
+        form > input {
+          font-size: 16px;
+          font-weight: 600;
+          padding: 15px;
+          outline: none;
+          background: transparent;
+          border: 2px solid #402e57;
+          border-radius: 15px;
+          color: #284e65;
+        }
+        .signup {
+          display: none;
+        }
+        .signup > form > button {
+          padding: 15px 0;
+          border-radius: 25px;
+        }
+        .feedBack,
+        .feedBack1 {
+          color: red;
+          text-align: left;
+        }
+        .register-btn {
+          background: #6e5196;
+          margin-top: 10px;
+          color: #fff;
+        }
+        .login {
+          display: none;
+        }
+        .login button {
+          text-transform: uppercase;
+          background: #447ba2;
+          color: #fff;
+          padding: 15px 0;
+          border-radius: 25px;
+          font-size: 16px;
+        }
+        .login .show {
+          display: none;
+          background: #fff;
+          color: #2eb39698;
+        }
+        
+        .loaderDiv {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .loader {
+          width: 20px;
+          height: 20px;
+          border: 2px solid white;
+          border-bottom-color: transparent;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          animation: rotation 1s linear infinite;
+        }
+        
+        @keyframes rotation {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        
+        .success {
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .success p {
+            font-size: 20px;
+            margin: 0 20px;
+            font-weight: 600;
+        }
+        .success button {
+            color: #000000;
+            font-size: 24px;
+        }
+        
+        @media (max-width: 860px) {
+          main {
+            width: 70%;
+          }
+          .layer-one-btn {
+            padding: 10px 30px;
+          }
+          form {
+            width: 300px;
+          }
+        }
+            </style>
+            <title>Login Authentication</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+          </head>
+          <body>
+        
+            <main>
+              <section class="home">
+                <h1>Get Started</h1>
+                <div>
+                  <button class="layer-one-btn login-btn">Log in</button>
+                  <button class="layer-one-btn Sign-btn">Sign Up</button>
+                </div>
+              </section>
+        
+              <section class="signup">
+                <h1>Register</h1>
+                <form>
+                  <input type="text" placeholder="Username" class="username" />
+                  <input type="text" placeholder="Password" class="password" />
+                  <input
+                    type="text"
+                    placeholder="Comfirm Password"
+                    class="confirm-password"
+                  />
+                  <p class="feedBack"></p>
+                  <button class="register-btn">Register</button>
+                  <button class="login-btn">Have account? Sign In</button>
+                </form>
+              </section>
+        
+              <section class="login">
+                <h1>login</h1>
+                <form>
+                  <input type="text" placeholder="Username" class="log-username" />
+                  <input type="text" placeholder="Password" class="log-password" />
+                  <p class="feedBack1"></p>
+                  <button class="access">login</button>
+                  <button class="show Sign-btn">Sign Up</button>
+                </form>
+              </section>
+        
+              <section class="success">
+                <svg
+                  width="90px"
+                  height="90px"
+                  viewBox="-51.2 -51.2 614.40 614.40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#000000"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0">
+                    <rect
+                      x="-51.2"
+                      y="-51.2"
+                      width="614.40"
+                      height="614.40"
+                      rx="307.2"
+                      fill="#83d043"
+                      strokewidth="0"
+                    ></rect>
+                  </g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          fill: none;
+                          stroke: #fff;
+                          stroke-linecap: round;
+                          stroke-linejoin: round;
+                          stroke-width: 20px;
+                        }
+                      </style>
+                    </defs>
+                    <g data-name="Layer 2" id="Layer_2">
+                      <g
+                        data-name="E408, Success, Media, media player, multimedia"
+                        id="E408_Success_Media_media_player_multimedia"
+                      >
+                        <circle class="cls-1" cx="256" cy="256" r="246"></circle>
+                        <polyline
+                          class="cls-1"
+                          points="115.54 268.77 200.67 353.9 396.46 158.1"
+                        ></polyline>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <p>Registration Successful, you can now log in</p>
+                <button class="layer-one-btn login-btn">ok</button>
+              </section>
+            </main>
+            <script>
+                const loginBtn = document.querySelectorAll(".login-btn");
+        const loginPage = document.querySelector(".login");
+        const homePage = document.querySelector(".home");
+        const signUpPage = document.querySelector(".signup");
+        const signUpBtn = document.querySelectorAll(".Sign-btn");
+        const registerBtn = document.querySelector(".register-btn");
+        const username = document.querySelector(".username");
+        const password = document.querySelector(".password");
+        const logUsername = document.querySelector(".log-username");
+        const logPassword = document.querySelector(".log-password");
+        const confirmPassword = document.querySelector(".confirm-password");
+        const feedBack = document.querySelector(".feedBack");
+        const access = document.querySelector(".access");
+        const show = document.querySelector(".show");
+        const success = document.querySelector(".success");
+        
+        const storedData = JSON.parse(localStorage.getItem("userInfo")) || undefined;
+        
+        const data = {
+          userName: "",
+          password: "",
+        };
+        
+        
+        
+        // Handling login Button
+        loginBtn.forEach((btn) => {
+          btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            homePage.style.display = "none";
+            signUpPage.style.display = "none";
+            success.style.display = "none";
+            loginPage.style.display = "block";
+          });
+        });
+        
+        
+        // Handling signUp Button
+        signUpBtn.forEach((btn) => {
+          btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            loginPage.style.display = "none";
+            homePage.style.display = "none";
+            signUpPage.style.display = "block";
+          });
+        });
+        
+        
+        // Handling Registration
+        registerBtn.addEventListener("click", (event) => {
+          event.preventDefault();
+          registerBtn.innerHTML = `
+            <div class='loaderDiv'>
+                <span class="loader"></span>
+            </div>
+             `;
+             feedBack.innerText = "";
+          
+          setTimeout(() => {
+            if (
+              username.value.length !== 0 &&
+              password.value.length !== 0 &&
+              confirmPassword.value.length !== 0
+            ) {
+              if (
+                confirmPassword.value === password.value &&
+                username.value.length >= 3 &&
+                /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&?@"]).*$/.test(
+                  password.value
+                )
+              ) {
+                data.userName = username.value;
+                data.password = password.value;
+                localStorage.setItem("userInfo", JSON.stringify(data));
+                feedBack.innerText = "";
+                console.log(`name : ${data.userName}, pass : ${data.password}`);
+                signUpPage.style.display = "none";
+                success.style.display = 'flex';
+                username.value = '';
+                password.value = '';
+                confirmPassword.value = '';
+              } else if (username.value.length < 3) {
+                feedBack.innerText = "username must contain more than 3 letter";
+              } else if (confirmPassword.value !== password.value) {
+                feedBack.innerText = `both passwords does not match`;
+              } else if (!/^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&?@"]).*$/.test(password.value)) {
+                feedBack.innerText = `password must be 8 characters long, it must contain at least one uppercase letter, one lowercase letter, one number and one special character `;
+              }
+             
+            } else {
+              feedBack.innerText = "form must be filled";
+            }
+            registerBtn.innerHTML = `Register`;
+          }, 2000);
+        });
+        
+        
+        
+        // Handling login
+        access.addEventListener("click", (e) => {
+          e.preventDefault();
+          const feedBack1 = document.querySelector(".feedBack1");
+          storedData.length === 0 ? alert("hello") : console.log(storedData);
+        
+          if (logUsername.value !== "" && logPassword.value !== "") {
+            access.innerHTML = `
+           <div class='loaderDiv'>
+            <span class="loader"></span>
+          </div>
+           `;
+            setTimeout(() => {
+              access.innerHTML = `Login`;
+              if (storedData !== undefined) {
+                if (
+                  storedData.userName === logUsername.value &&
+                  storedData.password === logPassword.value
+                ) {
+                  feedBack1.innerText = ``;
+                  alert("logged in");
+                  logUsername.value = '';
+                  logPassword.value = '';
+                } else {
+                  feedBack1.innerText = `You entered Incorrect data, you can click the sign up button below to create an account with us`;
+                  show.style.display = "none" ? (show.style.display = "block") : "";
+                }
+              } else {
+                feedBack1.innerText = `Account does not exist, click the sign up button below to create an account with us`;
+                show.style.display = "none" ? (show.style.display = "block") : "";
+              }
+            }, 2000);
+          } else {
+            feedBack1.innerText = `form must be fill`;
+          }
+        });
+            </script>
+          </body>
+        </html>
